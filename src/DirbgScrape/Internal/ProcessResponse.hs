@@ -10,7 +10,8 @@ import qualified Data.Text.Encoding as T
 import DirbgScrape.Types
 
 articles :: Selector
-articles = "div" @: [hasClass "text-news", hasClass "list-article"]
+articles = "div" @: [hasClass "text-news", hasClass "list-article"] // 
+           "a" @: ["class" @= "img-wrapper"]
 
 titles :: Selector -> Scraper T.Text [T.Text]
 titles = attrs "title"
