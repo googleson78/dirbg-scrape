@@ -1,0 +1,52 @@
+name:                dirbg-scrape
+version:             0.0.1
+github:              "googleson78/dirbg-scrape"
+license:             BSD3
+author:              "Georgi Lyubenov"
+maintainer:          "godzbanebane@gmail.com"
+copyright:           "2018 Georgi Lyubenov"
+
+extra-source-files:
+- README.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/googleson78/dirbg-scrape#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- text
+- wreq
+- lens
+- bytestring
+- scalpel-core
+
+library:
+  source-dirs: src
+
+executables:
+  dirbg-scrape-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - dirbg-scrape
+
+tests:
+  dirbg-scrape-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - dirbg-scrape
